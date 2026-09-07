@@ -8,8 +8,8 @@ page_hero: false
 ---
 
 <div class="links-cta">
-  <p>欢迎交换友链。点下面的按钮，到博客仓库的 Discussions 按格式留言，审核后即上链。</p>
-  <a class="specular-btn" href="https://github.com/XpfQdlg/blog/discussions" target="_blank" rel="noopener">✉️ 申请友链</a>
+  <p>欢迎交换友链。点下面的按钮，到博客仓库开一个 Issue（标题写「友链申请」），按格式留言，审核后即上链。</p>
+  <a class="specular-btn" href="https://github.com/XpfQdlg/blog/issues/new?title=%E5%8F%8B%E9%93%BE%E7%94%B3%E8%AF%B7" target="_blank" rel="noopener">✉️ 申请友链</a>
 </div>
 
 留言格式（name / link / avatar / descr 缺一不可）：

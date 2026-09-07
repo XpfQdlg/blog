@@ -75,9 +75,10 @@
 #page-header.full_page {
   position: relative;
   overflow: hidden;
-  /* 兜底渐变：即使无 WebGL 也有好看的暗色背景（GitHub 紫系） */
+  /* 兜底渐变：近黑的 GitHub 紫，让金色光带/发光球更跳 */
   background:
-    radial-gradient(120% 120% at 50% 0%, #6d28d9 0%, #4c1d95 55%, #2e1065 100%) !important;
+    radial-gradient(130% 150% at 50% -25%, rgba(148, 96, 235, 0.55) 0%, rgba(92, 44, 190, 0.28) 40%, transparent 78%),
+    linear-gradient(180deg, #2a0a5e 0%, #1d0849 58%, #0c0526 100%) !important;
 }
 
 /* Orb 画布铺满整块头部，位于最底层 */
@@ -125,9 +126,11 @@
   }
 }
 
-/* 站点主标题下的副标题打字机区，与 orb 对比更清楚 */
+/* 站点主标题下的副标题打字机区：加深阴影，金光扫过也不糊字 */
 #page-header.full_page #site-info {
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.9),
+    0 4px 22px rgba(0, 0, 0, 0.55);
 }
 
 /* ---------- 3. 小屏/细节微调 ---------- */

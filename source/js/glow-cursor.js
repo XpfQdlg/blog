@@ -158,16 +158,16 @@
   /* ---------- 参数（对齐素材里的推荐取值） ---------- */
 
   const CFG = {
-    color: '#f7d467',
-    secondaryColor: '#6366f1',
+    color: '#ffd66b',        // 亮金
+    secondaryColor: '#ff9a3d', // 橙，和紫底拉开对比
     trailLength: 40,
-    trailWidth: 9,
+    trailWidth: 10,
     trailTaper: 0.8,
     followSpeed: 0.6,
-    glowIntensity: 2.3,
+    glowIntensity: 2.7,
     glowSpread: 1.2,
-    hotspot: 0.65,
-    brightness: 1.25,
+    hotspot: 0.7,
+    brightness: 1.5,
     opacity: 1,
     pulseSpeed: 4,
     noiseStrength: 0.035,
