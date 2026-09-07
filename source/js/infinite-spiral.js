@@ -50,14 +50,17 @@
     if (anchors.length < 1) return
     if (archive.querySelector('.blog-spiral')) return
 
-    // 容器插到归档标题之前
+    // 顶部"展示面板"：内放螺旋动画，插到时间轴标题之前
+    const panel = document.createElement('div')
+    panel.className = 'spiral-panel'
     const root = document.createElement('div')
     root.className = 'blog-spiral'
     const stage = document.createElement('div')
     stage.className = 'blog-spiral__stage'
     root.appendChild(stage)
+    panel.appendChild(root)
     const title = archive.querySelector('.article-sort-title')
-    archive.insertBefore(root, title || archive.firstChild)
+    archive.insertBefore(panel, title || archive.firstChild)
 
     // 生成卡片（每个卡即一篇文章，点击可进）
     const items = anchors.map(a => ({

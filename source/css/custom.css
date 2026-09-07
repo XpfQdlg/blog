@@ -177,19 +177,45 @@
 .footer-tag:hover {
   transform: translateY(-2px);
   background: color-mix(in srgb, currentColor 15%, transparent);
-  box-shadow: 0 4px 14px color-mix(in srgb, currentColor 18%, transparent);
+  box-shadow: 0 4px 14px rgba(124, 108, 255, 0.4);
 }
 .footer-tag__count {
   font-size: 0.68rem;
   opacity: 0.7;
 }
 
-/* ---------- 5. 时间轴顶部 InfiniteSpiral 装饰 ---------- */
+/* ---------- 5. 时间轴顶部 InfiniteSpiral 展示面板 ---------- */
+/* 顶部独立圆角面板：紫色渐变 + 玻璃感，内放螺旋动画 */
+.spiral-panel {
+  position: relative;
+  width: 100%;
+  margin: 0 0 18px;
+  border-radius: 22px;
+  overflow: hidden;
+  background: linear-gradient(
+    165deg,
+    color-mix(in srgb, var(--card-bg, #15132a) 78%, #7c6cff),
+    color-mix(in srgb, var(--card-bg, #15132a) 82%, #2f2b6b) 60%,
+    var(--card-bg, #15132a)
+  );
+  border: 1px solid color-mix(in srgb, #7c6cff 45%, transparent);
+  box-shadow: 0 18px 44px rgba(80, 70, 220, 0.18);
+}
+.spiral-panel::after {
+  content: '∞ 归档画廊';
+  position: absolute;
+  right: 16px;
+  bottom: 10px;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  opacity: 0.45;
+  pointer-events: none;
+}
 .blog-spiral {
   position: relative;
   width: 100%;
-  height: 340px;
-  margin: 0 auto 4px;
+  height: 320px;
+  margin: 0;
   overflow: hidden;
   isolation: isolate;
 }
@@ -211,13 +237,14 @@
   text-align: center;
   text-decoration: none;
   color: inherit;
-  border: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+  border: 1px solid color-mix(in srgb, #a793ff 55%, transparent);
   background: linear-gradient(
     140deg,
-    color-mix(in srgb, var(--card-bg, #fff) 94%, #6b3fa0),
-    color-mix(in srgb, var(--card-bg, #fff) 94%, #1e3a8a)
+    color-mix(in srgb, #ffffff 6%, transparent),
+    color-mix(in srgb, #6f4ff0 22%, transparent)
   );
-  box-shadow: 0 14px 38px rgba(8, 6, 18, 0.16);
+  box-shadow: 0 14px 38px rgba(8, 6, 18, 0.24);
+  backdrop-filter: blur(2px);
   overflow: hidden;
   transform-style: preserve-3d;
   backface-visibility: hidden;
@@ -227,13 +254,16 @@
   font-size: 0.82rem;
   line-height: 1.35;
   max-width: 100%;
+  color: inherit;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 @media screen and (max-width: 767px) {
-  .blog-spiral { height: 240px; }
+  .spiral-panel { border-radius: 16px; }
+  .blog-spiral { height: 220px; }
 }
 
 /* ---------- 6. 友链页高光主按钮（Specular 风格） ---------- */
@@ -252,14 +282,14 @@
   text-decoration: none;
   border: 1px solid rgba(255, 255, 255, 0.25);
   overflow: hidden;
-  background: linear-gradient(135deg, #7a5cff 0%, #4f6bff 55%, #2f8cff 100%);
-  box-shadow: 0 10px 30px rgba(80, 90, 255, 0.35);
+  background: linear-gradient(135deg, #a06bff 0%, #8b6bff 42%, #6a5cff 100%);
+  box-shadow: 0 10px 30px rgba(124, 108, 255, 0.38);
   transition: transform 0.18s ease, box-shadow 0.2s ease;
   cursor: pointer;
 }
 .specular-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 34px rgba(80, 90, 255, 0.5);
+  box-shadow: 0 14px 36px rgba(124, 108, 255, 0.55);
   color: #fff;
 }
 .specular-btn:active {

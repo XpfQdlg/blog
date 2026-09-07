@@ -272,7 +272,8 @@
       canvas.style.width = w + 'px'
       canvas.style.height = h + 'px'
       gl.viewport(0, 0, canvas.width, canvas.height)
-      gl.uniform2f(U.res, canvas.width, canvas.height)
+      // 关键：坐标空间必须与鼠标坐标一致，用 CSS 像素宽高（而非物理像素）
+      gl.uniform2f(U.res, w, h)
     }
 
     function initTrail(x, y) {
