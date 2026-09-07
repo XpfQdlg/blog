@@ -28,6 +28,10 @@ avatar:
 # 首页大图：放一张透明占位图，主题借此渲染 home 全屏头部（Orb 动画覆盖其上）
 index_img: /img/hero.png
 
+# 关键：让 Butterfly 只在首页(top_img=index_img)显示 Hero；
+# 其余页面默认不再生成页头大标题（default_top_img=false → top_img=false）
+default_top_img: false
+
 # ---------- 首页副标题（打字机）----------
 subtitle:
   enable: true
@@ -120,7 +124,6 @@ inject:
   head:
     - <link rel="stylesheet" href="/blog/css/custom.css">
   bottom:
-    - <script src="/blog/js/page-hero.js"></script>
     - <script src="/blog/js/orb-hero.js"></script>
     - <script src="/blog/js/glow-cursor.js"></script>
     - <script src="/blog/js/nav-buttons.js"></script>

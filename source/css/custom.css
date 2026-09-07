@@ -192,10 +192,10 @@
   text-align: center;
   color: #fff;
   background:
-    radial-gradient(130% 170% at 85% -30%, rgba(124, 108, 255, 0.45) 0%, rgba(96, 76, 220, 0.2) 46%, transparent 80%),
-    linear-gradient(150deg, #3a2f9e 0%, #241d63 60%, #14102f 100%);
-  border: 1px solid rgba(124, 108, 255, 0.35);
-  box-shadow: 0 14px 34px rgba(70, 60, 200, 0.18);
+    radial-gradient(130% 170% at 85% -30%, rgba(163, 113, 247, 0.4) 0%, rgba(130, 80, 223, 0.2) 46%, transparent 80%),
+    linear-gradient(150deg, #8250df 0%, #6d28d9 55%, #4c1d95 100%);
+  border: 1px solid rgba(163, 113, 247, 0.4);
+  box-shadow: 0 14px 34px rgba(130, 80, 223, 0.22);
 }
 .links-cta p {
   margin: 0 0 14px;
@@ -273,42 +273,4 @@
 }
 .specular-btn:hover::after { background-position: 0 0; }
 
-/* ---------- 7. 内容页统一 GitHub 紫 Hero（page-hero.js，静态） ---------- */
-#page-hero {
-  position: relative;
-  overflow: hidden;
-  color: #fff;
-  background:
-    radial-gradient(120% 160% at 50% -45%, rgba(190, 150, 255, 0.45) 0%, rgba(130, 80, 223, 0.25) 50%, transparent 88%),
-    linear-gradient(180deg, #9d4edd 0%, #8250df 52%, #6a1fb5 100%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
-}
-/* 标题层：居中 */
-#page-hero .hero__content {
-  position: relative;
-  max-width: 920px;
-  margin: 0 auto;
-  padding: 60px 20px 56px;
-  text-align: center;
-}
-#page-hero .hero__title {
-  margin: 0 0 8px;
-  font-size: 2rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
-}
-#page-hero .hero__sub {
-  margin: 0;
-  font-size: 1rem;
-  opacity: 0.92;
-}
-/* 标题已在 Hero 内居中，隐藏主题正文里重复打印的页面标题 */
-body.with-hero .page-title {
-  display: none !important;
-}
-@media screen and (max-width: 767px) {
-  #page-hero .hero__content { padding: 40px 16px 38px; }
-  #page-hero .hero__title { font-size: 1.5rem; }
-  #page-hero .hero__sub { font-size: 0.9rem; }
-}
+/* (page-hero 顶部大标题区已移除——内容页不再额外叠加 Hero 标题) */

@@ -18,7 +18,6 @@
 | `source/css/custom.css` | 自定义样式：顶栏菜单胶囊按钮化、首页 Orb hero 尺寸 |
 | `source/js/orb-hero.js` | 首页发光球动画（纯 WebGL，零依赖，仅首页） |
 | `source/js/glow-cursor.js` | 首页 hero 叠加的鼠标光带（ReactBits GlowCursor 纯 WebGL 移植，叠在 Orb 上、文字下，仅首页） |
-| `source/js/page-hero.js` | 内容页统一静态 Hero（时间轴/分类/标签/友链）：顶部 GitHub 紫条 + 居中标题，不含动画 |
 | `source/js/nav-buttons.js` | 顶栏按钮点按水波涟漪（事件委托，几十行） |
 | `source/js/specular-button.js` | 高光按钮：指针跟随高光（CSS 变量实现，无 WebGL），用于友链页申请按钮 |
 | `source/js/footer-tags.js` | 页脚标签胶囊：拉取 `data/tags.json` 渲染一组可点胶囊 |
