@@ -50,9 +50,14 @@
       .catch(() => { /* 忽略：无网络/构建期文件不存在时静默 */ })
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', load)
-  } else {
-    load()
+  function boot() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', load)
+    } else {
+      load()
+    }
   }
+  boot()
+  // 主题若开启 pjax：切页后重新拉取渲染
+  document.addEventListener('pjax:complete', load)
 })()

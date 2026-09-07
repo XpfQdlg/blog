@@ -161,9 +161,9 @@
     color: '#f7d467',
     secondaryColor: '#6366f1',
     trailLength: 40,
-    trailWidth: 8,
+    trailWidth: 9,
     trailTaper: 0.8,
-    followSpeed: 0.26,
+    followSpeed: 0.6,
     glowIntensity: 2.3,
     glowSpread: 1.2,
     hotspot: 0.65,
@@ -172,8 +172,8 @@
     pulseSpeed: 4,
     noiseStrength: 0.035,
     idleFade: true,
-    idleTimeout: 700,
-    fadeDuration: 900
+    idleTimeout: 900,
+    fadeDuration: 600
   }
 
   /* ---------- 入口 ---------- */
@@ -360,9 +360,14 @@
     if (header) mount(header)
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init)
-  } else {
-    init()
+  function boot() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init)
+    } else {
+      init()
+    }
   }
+  boot()
+  // 主题若开启 pjax：切页后重新挂载
+  document.addEventListener('pjax:complete', init)
 })()

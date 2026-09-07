@@ -367,9 +367,14 @@
     if (header) mount(header)
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init)
-  } else {
-    init()
+  function boot() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init)
+    } else {
+      init()
+    }
   }
+  boot()
+  // 主题若开启 pjax：切页后重新挂载
+  document.addEventListener('pjax:complete', init)
 })()

@@ -47,7 +47,7 @@
     const anchors = Array.prototype.slice.call(
       archive.querySelectorAll('a.article-sort-item-title')
     )
-    if (anchors.length < 3) return
+    if (anchors.length < 1) return
     if (archive.querySelector('.blog-spiral')) return
 
     // 容器插到归档标题之前
@@ -177,9 +177,14 @@
     }
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', mount)
-  } else {
-    mount()
+  function boot() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', mount)
+    } else {
+      mount()
+    }
   }
+  boot()
+  // 主题若开启 pjax：切页后重新挂载
+  document.addEventListener('pjax:complete', mount)
 })()
