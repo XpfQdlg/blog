@@ -362,9 +362,10 @@
   }
 
   function init() {
-    // 首页 hero：存在 #page-header.full_page 才挂载
-    const header = document.querySelector('#page-header.full_page')
-    if (header) mount(header)
+    // 首页 hero，或 page-hero.js 生成的内容页 Hero（发光粒子层）
+    const target = document.querySelector('#page-header.full_page') ||
+      document.querySelector('#page-hero[data-fx="orb"]')
+    if (target) mount(target)
   }
 
   function boot() {

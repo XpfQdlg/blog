@@ -120,8 +120,10 @@ inject:
   head:
     - <link rel="stylesheet" href="/blog/css/custom.css">
   bottom:
+    - <script src="/blog/js/page-hero.js"></script>
     - <script src="/blog/js/orb-hero.js"></script>
     - <script src="/blog/js/glow-cursor.js"></script>
+    - <script src="/blog/js/infinite-spiral.js"></script>
     - <script src="/blog/js/nav-buttons.js"></script>
     - <script src="/blog/js/footer-tags.js"></script>
     - <script src="/blog/js/specular-button.js"></script>
