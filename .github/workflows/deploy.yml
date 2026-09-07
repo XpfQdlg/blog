@@ -1,0 +1,55 @@
+# =====================================================
+# Hexo + Butterfly 博客自动构建部署到 GitHub Pages
+# 触发：push 到 main 分支（或手动 workflow_dispatch）
+# 注意：GitHub 仓库 Settings → Pages → Source 需选
+# "GitHub Actions"
+# =====================================================
+name: Deploy Hexo Blog to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # 主题目录 themes/ 不入库（见 .gitignore），CI 里现拉，保证仓库干净可复现
+      - name: Clone Butterfly theme
+        run: git clone --depth 1 -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly
+
+      - name: Generate static site
+        run: npx hexo generate
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4

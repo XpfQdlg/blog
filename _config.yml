@@ -1,0 +1,86 @@
+# Hexo Configuration
+# 站点信息（XuPengFei 个人博客）
+
+## Site
+title: XuPengFei
+subtitle: 'Do not remain silent after a single failure.'
+description: 徐鹏飞的个人博客，记录代码、安全与折腾。
+keywords: blog, security, web, python, ctf, xupengfei
+author: XuPengFei
+language: zh-CN
+timezone: Asia/Shanghai
+
+# 主题
+theme: butterfly
+
+## URL
+url: https://xpfqdlg.github.io/blog
+root: /blog/
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+pretty_urls:
+  trailing_index: false
+  trailing_html: false
+
+## 目录
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+## 写作
+new_post_name: :title.md
+default_layout: post
+titlecase: false
+external_link:
+  enable: true
+  field: site
+  exclude:
+filename_case: 0
+render_dummies: false
+
+## 高亮（用 highlight 即可，prismjs 留空）
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace: ''
+  wrap: true
+  hljs: false
+prismjs:
+  enable: false
+  preprocess: true
+  line_number: true
+  tab_replace: ''
+
+## 首页与归档
+index_generator:
+  path: ''
+  per_page: 10
+  order_by: -date
+default_category: uncategorized
+category_map:
+tag_map:
+
+## 元信息与格式
+meta_generator: true
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+updated_option: mtime
+per_page: 10
+pagination_dir: page
+
+## hexo-generator-searchdb（本地搜索）
+search:
+  path: search.xml
+  field: post
+  content: true
+  format: html
+
+## 部署（本项目由 GitHub Actions 构建，不在此配置 deploy）
+deploy:
+  type: ''

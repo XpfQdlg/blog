@@ -1,0 +1,15 @@
+# 依赖与构建产物
+node_modules/
+public/
+.deploy_git/
+db.json
+
+# Butterfly 主题（CI 里现拉，本地需自行 clone）
+themes/butterfly/
+
+# 系统/编辑器
+.DS_Store
+Thumbs.db
+*.log
+.idea/
+.vscode/

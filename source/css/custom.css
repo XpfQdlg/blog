@@ -1,0 +1,122 @@
+/* =====================================================
+   XuPengFei 博客自定义样式
+   覆盖 Butterfly 顶栏菜单为胶囊按钮，并适配 Orb 首页。
+   说明：以 currentColor 做半透明底/描边，颜色自动跟随
+   头部（深色 hero 上为白、普通页面上为文字色）。
+   ===================================================== */
+
+/* ---------- 1. 顶栏菜单 → 胶囊按钮 ---------- */
+
+#nav #menus {
+  gap: 4px;
+}
+
+#nav #menus .site-page,
+#search-button .site-page {
+  position: relative;
+  overflow: hidden;          /* 涟漪裁切在按钮内 */
+  border-radius: 999px;
+  padding: 6px 14px;
+  margin: 0 2px;
+  line-height: 1.4;
+  border: 1px solid color-mix(in srgb, currentColor 16%, transparent);
+  background: color-mix(in srgb, currentColor 7%, transparent);
+  transition: background-color 0.25s ease, box-shadow 0.25s ease,
+              transform 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+#nav #menus .site-page:hover {
+  background: color-mix(in srgb, currentColor 14%, transparent);
+  box-shadow: 0 2px 8px color-mix(in srgb, currentColor 18%, transparent);
+  color: inherit;
+}
+
+#nav #menus .site-page:active {
+  transform: scale(0.93) translateY(1px);   /* 按下轻回弹 */
+}
+
+/* 当前所处页面高亮（若主题未自动加高亮，此规则备用） */
+#nav #menus .site-page.current {
+  box-shadow: inset 0 0 0 1px currentColor;
+}
+
+/* 涟漪圆 */
+#nav #menus .site-page .nav-ripple {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  background: color-mix(in srgb, currentColor 22%, transparent);
+  transform: scale(0);
+  animation: nav-ripple 0.55s ease-out forwards;
+}
+
+@keyframes nav-ripple {
+  to { transform: scale(1); opacity: 0; }
+}
+
+/* 图标与文字间距统一 */
+#nav #menus .site-page i {
+  margin-right: 4px;
+}
+
+/* 手机端：菜单收进侧栏后，按钮改回侧栏常见样式，避免胶囊太挤 */
+@media screen and (max-width: 900px) {
+  #nav #menus .site-page {
+    border: none;
+    background: transparent;
+    padding: 8px 12px;
+  }
+}
+
+/* ---------- 2. 首页全屏 hero（Orb 背景） ---------- */
+
+#page-header.full_page {
+  position: relative;
+  overflow: hidden;
+  /* 兜底渐变：即使无 WebGL 也有好看的暗色背景 */
+  background:
+    radial-gradient(120% 120% at 50% 0%, #1a1438 0%, #0d0f2b 55%, #070a1e 100%) !important;
+}
+
+/* Orb 画布铺满整块头部，位于内容之下 */
+#page-header.full_page .orb-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* 保证导航、站点信息在画布之上 */
+#page-header.full_page #nav,
+#page-header.full_page #site-info,
+#page-header.full_page #scroll-down {
+  position: relative;
+  z-index: 2;
+}
+
+/* 控制 hero 高度（默认 100vh 太高，收一收让文章首屏可见） */
+@media screen and (min-width: 768px) {
+  #page-header.full_page {
+    height: min(76vh, 720px);
+    min-height: 500px;
+  }
+}
+@media screen and (max-width: 767px) {
+  #page-header.full_page {
+    height: min(58vh, 520px);
+    min-height: 380px;
+  }
+}
+
+/* 站点主标题下的副标题打字机区，与 orb 对比更清楚 */
+#page-header.full_page #site-info {
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+}
+
+/* ---------- 3. 小屏/细节微调 ---------- */
+@media (prefers-reduced-motion: reduce) {
+  #nav #menus .site-page .nav-ripple { display: none; }
+}

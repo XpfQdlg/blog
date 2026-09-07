@@ -1,0 +1,125 @@
+# =====================================================
+# Butterfly 主题覆盖配置（最小覆盖，其余取主题默认）
+# Hexo 自动把本文件 deep-merge 到主题 _config.yml 之上。
+# 完整默认项见 themes/butterfly/_config.yml
+# =====================================================
+
+# ---------- 导航栏 ----------
+nav:
+  fixed: true
+
+# 顶栏菜单（样式做成胶囊按钮、点按动画在 custom.css / nav-buttons.js）
+menu:
+  首页: / || fas fa-home
+  时间轴: /archives/ || fas fa-archive
+  分类: /categories/ || fas fa-folder-open
+  标签: /tags/ || fas fa-tags
+  友情链接: /links/ || fas fa-link
+
+# ---------- 社交链接（顶栏/侧栏显示）----------
+social:
+  fab fa-github: https://github.com/XpfQdlg || GitHub || '#24292e'
+
+# ---------- 站点图 / 头像 / 首页大图 ----------
+favicon: /img/avatar.svg
+avatar:
+  img: /img/avatar.svg
+  effect: false
+
+# 首页大图：放一张透明占位图，主题借此渲染 home 全屏头部（Orb 动画覆盖其上）
+index_img: /img/hero.png
+
+# ---------- 首页副标题（打字机）----------
+subtitle:
+  enable: true
+  effect: true
+  source: false
+  sub:
+    - Do not remain silent after a single failure.
+
+# ---------- 页脚 ----------
+footer:
+  owner:
+    enable: true
+    since: 2026
+  copyright:
+    enable: true
+    version: true
+  custom_text:
+
+# ---------- 暗色模式 ----------
+darkmode:
+  enable: true
+  button: true
+
+# ---------- 访问统计（不蒜子：全站 UV/PV + 文章 PV）----------
+busuanzi:
+  site_uv: true
+  site_pv: true
+  page_pv: true
+
+# ---------- 站内搜索（本地，配 hexo-generator-searchdb）----------
+search:
+  use: local_search
+  local_search:
+    preload: true
+    top_n_per_article: 1
+
+# ---------- 侧栏 ----------
+aside:
+  position: right
+  card_author:
+    enable: true
+    description: 网络空间安全 2025 级在读，喜欢造好玩的东西。
+    button:
+      enable: true
+      icon: fab fa-github
+      text: GitHub
+      link: https://github.com/XpfQdlg
+  card_announcement:
+    enable: false
+  card_recent_post:
+    enable: true
+    limit: 5
+  card_categories:
+    enable: true
+    limit: 8
+  card_tags:
+    enable: true
+    limit: 40
+    orderby: name
+    order: 1
+  card_archives:
+    enable: true
+    type: monthly
+    format: YYYY年MM月
+    limit: 8
+  card_webinfo:
+    enable: true
+
+# ---------- 分享（暂关，减少第三方噪音）----------
+share:
+  use: ''
+
+# ---------- 评论区：giscus ----------
+# 启用步骤：1) 建好公开仓库 XpfQdlg/blog 并开启 Discussions；
+# 2) 到 giscus.app 选仓库拿到 repo_id / category_id；
+# 3) 把下面 use 改成 Giscus 并回填两个 id。
+comments:
+  use: ''
+  text: true
+  lazyload: false
+giscus:
+  repo: XpfQdlg/blog
+  repo_id:
+  category_id:
+  light_theme: light
+  dark_theme: dark
+
+# ---------- 自定义注入（按钮样式/动画、Orb、导航脚本）----------
+inject:
+  head:
+    - <link rel="stylesheet" href="/blog/css/custom.css">
+  bottom:
+    - <script src="/blog/js/orb-hero.js"></script>
+    - <script src="/blog/js/nav-buttons.js"></script>

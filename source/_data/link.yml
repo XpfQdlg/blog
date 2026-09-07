@@ -1,0 +1,10 @@
+# 友情链接数据（友链页读取）
+# 想上链的按以下格式加一条；name/link/avatar/descr 缺一不可
+- class_name: 小伙伴
+  class_desc: 一起学习一起折腾的人
+  link_list: []
+    # 想上链的，按下面格式在 link_list 里加一条（name/link/avatar/descr 缺一不可）：
+    # - name: 某某
+    #   link: https://example.com
+    #   avatar: https://example.com/avatar.png
+    #   descr: 一句话介绍
