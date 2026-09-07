@@ -41,26 +41,22 @@
   }
 
   function mount() {
-    // 只作用于归档页：存在 #archive 且里面有文章链接
+    // 只作用于归档页横幅里的 #archive-spiral-deco（由 page-hero.js 创建）
+    const deco = document.getElementById('archive-spiral-deco')
     const archive = document.getElementById('archive')
-    if (!archive) return
+    if (!deco || !archive) return
+    if (deco.querySelector('.blog-spiral')) return
     const anchors = Array.prototype.slice.call(
       archive.querySelectorAll('a.article-sort-item-title')
     )
     if (anchors.length < 1) return
-    if (archive.querySelector('.blog-spiral')) return
 
-    // 顶部"展示面板"：内放螺旋动画，插到时间轴标题之前
-    const panel = document.createElement('div')
-    panel.className = 'spiral-panel'
     const root = document.createElement('div')
     root.className = 'blog-spiral'
     const stage = document.createElement('div')
     stage.className = 'blog-spiral__stage'
     root.appendChild(stage)
-    panel.appendChild(root)
-    const title = archive.querySelector('.article-sort-title')
-    archive.insertBefore(panel, title || archive.firstChild)
+    deco.appendChild(root)
 
     // 生成卡片（每个卡即一篇文章，点击可进）
     const items = anchors.map(a => ({
@@ -85,6 +81,7 @@
     let progress = 0
     let targetProgress = 0
     let autoSpeed = 0
+    let spinOffset = 0   // 文章很少时也让它慢慢转，保证看得出是动画
     let hovered = false
     let visible = true
     let prevT = 0
@@ -130,6 +127,8 @@
         Math.min(CFG.radius, Math.max(72, width * 0.36)) * fit
       const fadeStart = clamp(1 - CFG.edgeFade, 0, 0.98)
       const turnSize = Math.max(CFG.cardsPerTurn, 1)
+      // 少于一整圈的文章数时，给一个缓慢的整体自旋，保证有动画感
+      if (count < turnSize) spinOffset = (spinOffset + delta * 42) % 360
 
       for (let i = 0; i < count; i++) {
         const card = cards[i]
@@ -140,7 +139,7 @@
         const opacity = 1 - smoothstep(fadeStart, 1, edge)
         const focus = 1 - Math.min(Math.abs(offset) / Math.max(turnSize * 0.65, 1), 1)
         const scale = (1 + (CFG.centerScale - 1) * focus) * fit
-        const angle = offset * (360 / turnSize) + CFG.rotation
+        const angle = offset * (360 / turnSize) + CFG.rotation + spinOffset
         const rad = (angle * Math.PI) / 180
         const x = Math.sin(rad) * responsiveRadius
         const z = Math.cos(rad) * responsiveRadius

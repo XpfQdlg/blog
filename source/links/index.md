@@ -8,9 +8,7 @@ comments: false
 
 ## 友情链接
 
-欢迎交换友链。想上链的同学，点下面的按钮，在博客仓库的 Discussions 里按格式留言即可：
-
-<a class="specular-btn" href="https://github.com/XpfQdlg/blog/discussions" target="_blank" rel="noopener">✉️ 申请友链</a>
+欢迎交换友链。想上链的同学，点**页面上方紫色横幅**里的「申请友链」按钮，在博客仓库的 Discussions 里按格式留言即可。
 
 留言格式（name / link / avatar / descr 缺一不可）：
 
