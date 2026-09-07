@@ -17,7 +17,12 @@
 | `source/_data/link.yml` | 友链数据（想上链就改这里） |
 | `source/css/custom.css` | 自定义样式：顶栏菜单胶囊按钮化、首页 Orb hero 尺寸 |
 | `source/js/orb-hero.js` | 首页发光球动画（纯 WebGL，零依赖，移植自 Orb.jsx 的 GLSL） |
+| `source/js/glow-cursor.js` | 首页 hero 叠加的鼠标光带（ReactBits GlowCursor 纯 WebGL 移植，叠在 Orb 上、文字下） |
 | `source/js/nav-buttons.js` | 顶栏按钮点按水波涟漪（事件委托，几十行） |
+| `source/js/infinite-spiral.js` | 时间轴(/archives/)顶部螺旋装饰（InfiniteSpiral 原生 DOM 移植，数据取自列表） |
+| `source/js/specular-button.js` | 友链页高光主按钮：指针跟随高光（CSS 变量实现，无 WebGL） |
+| `source/js/footer-tags.js` | 页脚标签胶囊：拉取 `data/tags.json` 渲染一组可点胶囊 |
+| `scripts/tags-json.js` | site 级生成器：构建时输出 `data/tags.json`（标签自动同步） |
 | `source/img/avatar.svg` | 站点头像/图标占位（XPF 徽标，可自行替换） |
 | `source/img/hero.png` | 首页占位透明图（仅用于让主题渲染 home hero，被 Orb 覆盖） |
 | `scaffolds/*.md` | `hexo new` 用的文章/页面模板 |
@@ -27,7 +32,8 @@
 
 - 首页 = 自动生成的最近文章列表页（由 `source/_posts/` 驱动）
 - 每篇文章在 `source/_posts/<名称>.md`，front-matter 写标题/日期/分类/标签/摘要
-- 顶栏五个按钮：首页 / 时间轴(/archives/) / 分类 / 标签 / 友情链接
+- 顶栏四个按钮：首页 / 时间轴(/archives/) / 分类 / 友情链接（"标签"已移到页脚胶囊，见下）
+- 页脚版权行下方：标签胶囊组（运行时拉 `data/tags.json` 渲染，点击进标签页）
 - 自定义效果入口：`_config.butterfly.yml` 底部 `inject` 段挂载 `custom.css` 与两个 JS
 
 ## 3. 运行方式
